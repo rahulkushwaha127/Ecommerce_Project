@@ -30,7 +30,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                    <?php  while($arr = mysqli_fetch_array($res)){   ?>
+                    <?php  while($arr = mysqli_fetch_array($res)){    ?>
 
                                 <tr class="text-center">                                   
                                     <td><?php  echo "$arr[id]";?></td>
