@@ -1,8 +1,8 @@
 <?php 
 
     require('top.inc.php');
-    $data = "SELECT * from category";
-    $res = mysqli_query($con, $data);
+    $sql = "SELECT * from categories order by categories asc";
+    $res = mysqli_query($con, $sql);
 
     
 
@@ -30,12 +30,20 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                    <?php  while($arr = mysqli_fetch_array($res)){    ?>
-
+                    <?php $i=1;  while($row = mysqli_fetch_assoc($res)){?>
+                                
                                 <tr class="text-center">                                   
-                                    <td><?php  echo "$arr[id]";?></td>
-                                    <td><?php  echo "$arr[categories]"; ?></td>
-                                    <td><?php  echo "$arr[status]";?></td>
+                                    <td><?php  echo "$row[id]";?></td>
+                                    <td><?php  echo "$row[categories]"; ?></td>
+                                    <td>
+                                        <?php 
+                                             if($row['status']=='1'){
+                                                echo "Active";
+                                             }else{
+                                                echo "Deactive";
+                                             }
+                                        ?>
+                                    </td>
                                     <td><button class="button btn-outline-success btn ">Edit</button></td>
                                     <td><button class="button btn-outline-danger btn  ">Delete</button></td>                                    
                                 </tr>

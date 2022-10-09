@@ -33,13 +33,13 @@
                <ul class="nav navbar-nav">
                   <li class="menu-title">Menu</li>
                   <li class="menu-item-has-children dropdown">
-                     <a href="category.php" > Category Master</a>
+                     <a href="categories.php" > Category Master</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
                      <a href="product.php" > Product Master</a>
                   </li>
 				      <li class="menu-item-has-children dropdown">
-                     <a href="" > Order Master</a>
+                     <a href="#" > Order Master</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
                      <a href="#" > User Master</a>
