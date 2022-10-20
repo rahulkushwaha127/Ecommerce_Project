@@ -3003,7 +3003,7 @@ footer.site-footer .footer-inner a {
     }
     .card-footer.bg-white [class*=float].fa {
         display: inline-block;
-        float: left!important
+        float: left!important;
     }
     #traffic-chart {
         height: 232px!important
@@ -3172,7 +3172,7 @@ footer.site-footer .footer-inner a {
 
 #cellPaiChart #pieLabel0 {
     left: inherit!important;
-    right: 20px!important
+    right: 20px!important;
 }
 .mt-150{
 	margin-top:150px;
@@ -3181,4 +3181,13 @@ footer.site-footer .footer-inner a {
 .field_error{
     color: red;
     margin-top: 15px;
+}
+.card .box-link {
+    font-weight: 600;
+    font-size: .8rem;
+    padding: 5px 0;
+}
+.card .box-link a{
+    color: #000;
+    text-decoration: underline;
 }
