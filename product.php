@@ -12,18 +12,20 @@
             }else{
                 $status='0';
             }
-            $update_status_sql="update categories set status='$status' where id='$id' ";
+            $update_status_sql="update product set status='$status' where id='$id' ";
             mysqli_query($con, $update_status_sql);
         }
         if($type=='delete'){
             $id = get_safe_value($con, $_GET['id']);
-            $delete_sql="delete from categories  where id='$id' ";
+            $delete_sql="delete from product  where id='$id' ";
             mysqli_query($con, $delete_sql);
         }
     }
 
-    $sql = "SELECT * from categories order by id  asc";
+    $sql = "SELECT  product.*,categories.categories from product,categories 
+    where product.categories_id=categories.id order by product.id  desc";
     $res = mysqli_query($con, $sql);
+   
     
 ?>
 <div class="content pb-0">
@@ -32,8 +34,8 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                         <h4 class="box-title">Category </h4>
-                         <h4 class="box-link"> <a href="manage_categories.php" >Add categories</a></h4>
+                         <h4 class="box-title">Products </h4>
+                         <h4 class="box-link"> <a href="manage_product.php" >Add Products</a></h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -43,9 +45,14 @@
                                     
                                     <th >ID</th>
                                     <th>Category</th>
-                                    <th>Status</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>Name</th>
+                                    <th>image</th>
+                                    <th>MRP</th>
+                                    <th>price</th>
+                                    <th>Qty</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -54,6 +61,10 @@
                                 <tr class="text-center">                                   
                                     <td><?php  echo "$row[id]";?></td>
                                     <td><?php  echo "$row[categories]"; ?></td>
+                                    <td><?php  echo "$row[name]"; ?></td>
+                                    <td><?php  echo "$row[image]"; ?></td>
+                                    <td><?php  echo "$row[mrp]"; ?></td>
+                                    <td><?php  echo "$row[qty]"; ?></td>
                                     <td>
                                         <?php 
                                              if($row['status']=='1'){
@@ -65,7 +76,7 @@
                                     </td>
                                     <td>
                                         <?php
-                                        echo "<a  href='manage_categories.php?&id=".$row['id']."'><span class='badge badge-edit'>Edit</span></a>";
+                                        echo "<a  href='manage_product.php?&id=".$row['id']."'><span class='badge badge-edit'>Edit</span></a>";
                                         ?>
                                     </td>
                                     <td>

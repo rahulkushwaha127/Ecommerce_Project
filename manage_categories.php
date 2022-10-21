@@ -1,13 +1,37 @@
 <?php 
 
     require('top.inc.php'); 
+    $categories='';
+    $msg='';
+    if(isset($_GET['id']) && $_GET['id']!=''){
+      $id=get_safe_value($con, $_GET['id']);
+      $res=mysqli_query($con, "select * from categories where id='$id' ");
+      $check=mysqli_num_rows($res);
+      if($check>0){
+         $row=mysqli_fetch_assoc($res);
+         $categories=$row['categories'];
+      }else{
+         header('location:categories.php'); 
+      }
+   }
     
     if(isset($_POST['submit'])){
         $categories=get_safe_value($con, $_POST['categories']);
-        $sql="insert into categories ( categories, status) values ('$categories','1')";
-        mysqli_query($con, $sql);
+         $res=mysqli_query($con, "select * from categories where categories='$categories' ");
+         $check=mysqli_num_rows($res);
+         if($check>0){
+            $msg="category Already exist";
+
+         }else{
+
+         if(isset($_GET['id']) && $_GET['id']!=''){
+            mysqli_query($con,"update categories set categories='$categories' where id='$id' ");
+         }else{
+            mysqli_query($con,"insert into categories ( categories, status) values ('$categories','1')");
+         }
         header('location:categories.php');
         die();
+      }
     }
 ?>
 <div class="content pb-0">
@@ -20,9 +44,10 @@
                         <div class="card-body card-block">
                            <div class="form-group">
                               <label for="categories" class=" form-control-label">Categories</label>
-                              <input type="text" name="categories" class="form-control" placeholder="Enter Categories" required>
+                              <input type="text" name="categories"  class="form-control" placeholder="Enter Categories" required value="<?php echo $categories ?>">
                            </div>
                            <button type="submit" name="submit" class="btn btn-lg btn-info btn-block">Submit</button>
+                           <div class =field_error  ;><?php echo $msg ; ?></div>
                         </div>
                         </form>
                      </div>
