@@ -14,8 +14,9 @@
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Dashboard Page</title>
+      <title>Admin Panel</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" type="image/x-ico" href="images/logo2.png">
       <link rel="stylesheet" href="assets/css/normalize.css">
       <link rel="stylesheet" href="assets/css/bootstrap.min.css">
       <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -42,7 +43,7 @@
                      <a href="#" > Order Master</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
-                     <a href="#" > User Master</a>
+                     <a href="users.php" > User Master</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
                      <a href="contact_us.php" > Contact Us</a>

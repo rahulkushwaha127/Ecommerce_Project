@@ -49,7 +49,6 @@
                                     <th>image</th>
                                     <th>MRP</th>
                                     <th>price</th>
-                                    <th>Qty</th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -62,9 +61,9 @@
                                     <td><?php  echo "$row[id]";?></td>
                                     <td><?php  echo "$row[categories]"; ?></td>
                                     <td><?php  echo "$row[name]"; ?></td>
-                                    <td><?php  echo "$row[image]"; ?></td>
+                                    <td><img src="<?php  echo "../media/product/$row[image]";?>"></td>
                                     <td><?php  echo "$row[mrp]"; ?></td>
-                                    <td><?php  echo "$row[qty]"; ?></td>
+                                    <td><?php  echo "$row[price]"; ?></td>
                                     <td>
                                         <?php 
                                              if($row['status']=='1'){
